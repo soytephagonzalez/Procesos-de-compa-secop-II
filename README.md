@@ -26,8 +26,70 @@ Este proyecto analiza los procesos de compra pública realizados en la plataform
 - **Propietario:** Colombia Compra Eficiente (Datos Abiertos CCE)
 - **Filtrado aplicado:** Solo procesos publicados entre el 01 de enero y el 30 de junio de 2025
 - **Filas analizadas:** 1.014.863 donde cada fila es un proceso
+- **Columnas que se utilizarán para el análisis:** 22
 - **Columnas originales:** 59
-- **Columnas seleccionadas para análisis:** 22
+
+| Nombre de la columna                  | Descripción                                                                 | Nombre del campo API                 | Tipo de Dato                |
+|---------------------------------------|-----------------------------------------------------------------------------|--------------------------------------|-----------------------------|
+| Entidad                              | Nombre de la Entidad que publica el proceso de compra pública               | entidad                              | Texto                       |
+| Nit Entidad                          | NIT de la Entidad que publicó el proceso                                    | nit_entidad                          | Texto                       |
+| Departamento Entidad                  | Departamento en el cual está registrada la entidad                          | departamento_entidad                 | Texto                       |
+| Ciudad Entidad                        | Ciudad en la cual está registrada la entidad                                | ciudad_entidad                       | Texto                       |
+| OrdenEntidad                          | Orden de la Entidad (Nacional, Regional)                                    | ordenentidad                         | Texto                       |
+| Entidad Centralizada                  | Identifica si la entidad es o no centralizada                               | codigo_pci                           | Texto                       |
+| ID del Proceso                        | Identificador Único del Proceso, valor generado por la plataforma           | id_del_proceso                       | Texto                       |
+| Referencia del Proceso                | Identificador del Proceso, valor generado por la Entidad                    | referencia_del_proceso               | Texto                       |
+| PCI                                   | Código de Unidad - Sub Unidad Contratación                                  | ppi                                  | Texto                       |
+| ID del Portafolio                     | Identificador del Portafolio al cual corresponde el proceso de compra       | id_del_portafolio                    | Texto                       |
+| Nombre del Procedimiento              | Nombre dado al proceso de compra por la Entidad                             | nombre_del_procedimiento             | Texto                       |
+| Descripción del Procedimiento         | Primera definición de las características principales del proceso           | descripci_n_del_procedimiento        | Texto                       |
+| Fase                                  | Fase en la que actualmente se encuentra el proceso                          | fase                                 | Texto                       |
+| Fecha de Publicacion del Proceso      | Fecha de la publicación inicial del proceso de compra                       | fecha_de_publicacion_del             | Marca de tiempo variable    |
+| Fecha de Ultima Publicación           | Fecha de la última publicación hecha para el proceso de compra              | fecha_de_ultima_publicaci            | Marca de tiempo variable    |
+| Fecha de Publicacion (Fase Planeacion Precalificacion) | Fecha de publicación de la fase de Planeación en Precalificación | fecha_de_publicacion_fase             | Marca de tiempo variable    |
+| Fecha de Publicacion (Fase Seleccion Precalificacion) | Fecha de publicación de la fase de Selección en Precalificación | fecha_de_publicacion_fase_1           | Marca de tiempo variable    |
+| Fecha de Publicacion (Manifestacion de Interes) | Fecha de publicación de la fase de Manifestación de Interés         | fecha_de_publicacion                  | Marca de tiempo variable    |
+| Fecha de Publicacion (Fase Borrador)  | Fecha de publicación de la fase Borrador                                    | fecha_de_publicacion_fase_2           | Marca de tiempo variable    |
+| Fecha de Publicacion (Fase Seleccion) | Fecha de publicación de la fase Selección                                   | fecha_de_publicacion_fase_3           | Marca de tiempo variable    |
+| Precio Base                           | Precio Base, proyectado, del proceso de Compra                              | precio_base                           | Número                      |
+| Modalidad de Contratacion             | Modalidad de selección bajo la cual se desarrolla el proceso de Compra      | modalidad_de_contratacion             | Texto                       |
+| Justificación Modalidad de Contratación | Justificación para la modalidad de selección elegida                       | justificaci_n_modalidad_de            | Texto                       |
+| Duracion                              | Valor de la Duración estimada del proceso de compra pública                 | duracion                              | Número                      |
+| Unidad de Duracion                    | Unidad que aplica a la Duración estimada del proceso de compra pública      | unidad_de_duracion                    | Texto                       |
+| Fecha de Recepcion de Respuestas      | Fecha asignada para la recepción de respuestas                              | fecha_de_recepcion_de                 | Marca de tiempo variable    |
+| Fecha de Apertura de Respuesta        | Fecha Estimada para la Apertura de las respuestas                           | fecha_de_apertura_de_respuesta        | Marca de tiempo variable    |
+| Fecha de Apertura Efectiva            | Fecha Real para la Apertura de las respuestas                               | fecha_de_apertura_efectiva            | Marca de tiempo variable    |
+| Ciudad de la Unidad de Contratación   | Ciudad de la unidad de contratación de la Entidad                           | ciudad_de_la_unidad_de                | Texto                       |
+| Nombre de la Unidad de Contratación   | Nombre de la unidad de contratación de la Entidad                           | nombre_de_la_unidad_de                | Texto                       |
+| Proveedores Invitados                 | Número de Proveedores invitados a participar del proceso                    | proveedores_invitados                 | Número                      |
+| Proveedores con Invitacion Directa    | Proveedores con Invitación a participar hecha de forma directa              | proveedores_con_invitacion            | Número                      |
+| Visualizaciones del Procedimiento     | Número de Visualizaciones del Proceso de Compra                             | visualizaciones_del                   | Número                      |
+| Proveedores que Manifestaron Interes  | Proveedores que Manifestaron Interés en el proceso                          | proveedores_que_manifestaron          | Número                      |
+| Respuestas al Procedimiento           | Respuestas hechas al procedimiento                                          | respuestas_al_procedimiento           | Número                      |
+| Respuestas Externas                   | Número de Respuestas hechas por entes externos                              | respuestas_externas                   | Número                      |
+| Conteo de Respuestas a Ofertas        | Número de Respuestas hechas de forma directa en las ofertas                 | conteo_de_respuestas_a_ofertas        | Número                      |
+| Proveedores Unicos con Respuestas     | Proveedores Únicos que han redactado respuestas en el proceso               | proveedores_unicos_con                | Número                      |
+| Numero de Lotes                       | Número de lotes de artículos solicitados dentro del proceso                 | numero_de_lotes                       | Número                      |
+| Estado del Procedimiento              | Estado actual de desarrollo del procedimiento de compra pública             | estado_del_procedimiento              | Texto                       |
+| ID Estado del Procedimiento           | Identificador del Estado del procedimiento                                  | id_estado_del_procedimiento           | Número                      |
+| Adjudicado                            | Determina si el proceso fue adjudicado                                      | adjudicado                            | Texto                       |
+| ID Adjudicacion                       | Identificador de la adjudicación                                            | id_adjudicacion                       | Texto                       |
+| CodigoProveedor                       | Código del proveedor adjudicado                                             | codigoproveedor                       | Texto                       |
+| Departamento Proveedor                | Departamento del proveedor adjudicado                                       | departamento_proveedor                | Texto                       |
+| Ciudad Proveedor                      | Ciudad del proveedor adjudicado                                             | ciudad_proveedor                      | Texto                       |
+| Fecha Adjudicacion                    | Fecha de adjudicación para el proveedor seleccionado                        | fecha_adjudicacion                    | Marca de tiempo variable    |
+| Valor Total Adjudicacion              | Valor total adjudicado                                                      | valor_total_adjudicacion              | Número                      |
+| Nombre del Adjudicador                | Nombre del Usuario que ejecutó la adjudicación                              | nombre_del_adjudicador                | Texto                       |
+| Nombre del Proveedor Adjudicado       | Nombre del Proveedor Adjudicado                                             | nombre_del_proveedor                  | Texto                       |
+| NIT del Proveedor Adjudicado          | NIT del Proveedor Adjudicado                                                | nit_del_proveedor_adjudicado          | Texto                       |
+| Codigo Principal de Categoria         | Código UNSPSC de la categoría principal del producto o servicio             | codigo_principal_de_categoria         | Texto                       |
+| Estado de Apertura del Proceso        | Estado de Apertura de información del proceso                               | estado_de_apertura_del_proceso        | Texto                       |
+| Tipo de Contrato                      | Tipo de Contrato definido para el proceso de compra                         | tipo_de_contrato                      | Texto                       |
+| Subtipo de Contrato                   | Subtipo de Contrato definido para el proceso de compra                      | subtipo_de_contrato                   | Texto                       |
+| Categorias Adicionales                | Categorías UNSPSC adicionales incluidas en el proceso                       | categorias_adicionales                | Texto                       |
+| URLProceso                            | URL para consultar el proceso de compra                                     | urlproceso                            | URL                         |
+| Codigo Entidad                        | Código de la entidad en la plataforma SECOPII                               | codigo_entidad                        | Número                      |
+| Estado Resumen                        | Resumen del estado del proceso de compra pública                            | estado_resumen                        | Texto                       |
 
 ---
 
@@ -64,8 +126,19 @@ Este proyecto analiza los procesos de compra pública realizados en la plataform
 
 ## Validación de tipos de datos
 
-- Se identifican y corrigen problemas de formato regional en fechas y datos numéricos.
-- Se ajustan algunos tipos de datos
+- Se identifican y corrigen problemas de formato regional.
+
+| Columna                        | Tipo de dato    | Configuración regional         |
+|--------------------------------|-----------------|-------------------------------|
+| Valor Total Adjudicación       | Número entero   | Inglés (Estados Unidos)        |
+| Fecha de Publicación del Proceso | Fecha         | Inglés (Estados Unidos)        |
+
+  
+- Se ajusta tipo de datos
+
+| Columna | Tipo de dato | Cambio         |
+|---------|--------------|----------------|
+| PCI     | Texto        | Número Entero  |
 
 ---
 
@@ -191,10 +264,12 @@ El informe se divide en dos secciones principales:
 
 ## Funcionalidades adicionales
 
-- **Drillthrough (Obtención de detalles):** Dos páginas ocultas para detalle de procesos de compra y de valor adjudicado, accesibles desde los gráficos principales.
+- **Drillthrough (Obtención de detalles):** Dos páginas ocultas para obtención de detalles basadas en los campos de procesos de compra y de valor adjudicado, accesibles desde los gráficos principales.
 - **Tooltips (Información sobre la herramienta)** al pasar el cursor sobre el gráfico de procesos por orden de entidad, se muestra detalle por entidad.
 - **Visualizaciones variadas:** Barras, columnas, circulares, líneas, árbol, tablas y medidor.
 - **Tema personalizado:** Colores corporativos de Colombia Compra Eficiente (amarillo, azul, rojo, blanco y negro).
+
+![Dim_Detallado](images/Detallado.png)
 
 ---
 
