@@ -303,8 +303,3 @@ El informe se divide en dos secciones principales:
 
 - Este proyecto es solo para fines demostrativos y de portafolio.
 - Los datos usados son de dominio público
-- Si necesitas abrir el archivo PBIX:
-  1. Descárgalo desde este repositorio.
-  2. Ábrelo en Power BI Desktop
-
-
