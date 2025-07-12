@@ -71,10 +71,10 @@ Este proyecto analiza los procesos de compra pública realizados en la plataform
 
 ## Diseño del modelo de datos
 
-- Se define un modelo estrella con una tabla de hechos y nueve tablas de dimensiones.
+- Se define un modelo estrella con una tabla de hechos de los procesos y 10 tablas de dimensiones (Entidad, Proveedor, Adjudicado,Estado Apertura, Estado procedimiento, Fase, Modelidad de contratación, Tipo Contrato, Segmento y fecha.
 - Se crean claves primarias y foráneas, incluidas claves sustitutas generadas manualmente cuando no existen en el origen.
 
-[Diseño](images/Diseño del modelo.png)
+![Diseño](images/Diseño%20del%20modelo.png)
 ---
 
 # Proceso de ETL (Extracción, Transformación y Carga)
@@ -83,6 +83,8 @@ Este proyecto analiza los procesos de compra pública realizados en la plataform
 
 - Se importa el dataset original a Power Query.
 - Se eliminan columnas innecesarias y se inhabilita la carga de la tabla base en el modelo.
+
+  ![Dateset](images/Original.png)
 
 ## 2. Creación de tablas de dimensiones
 
@@ -96,6 +98,15 @@ Para cada dimensión:
 - Ajustar tipos de datos.
 - Limpiar caracteres especiales y espacios.
 
+![Dim_Adjudicado](images/Adjudicado.png)
+![Dim_Apertura](images/Apertura.png)
+![Dim_Contrato](images/Contrato.png)
+![Dim_Entidad](images/Entidad.png)
+![Dim_Fase](images/Fase.png)
+![Dim_Modalidad](images/Modalidad.png)
+![Dim_Procedimiento](images/Procedimiento.png)
+![Dim_Proveedor](images/Proveedor.png)
+
 ## 3. Creación de la tabla de hechos
 
 - Se crea por referencia desde la tabla principal.
@@ -104,6 +115,8 @@ Para cada dimensión:
 - Se crea una columna personalizada para el ID de segmento (primeros dos dígitos del código de categoría principal).
 - Se eliminan columnas innecesarias
 - se ajustan tipos de datos.
+
+![Hechos](images/Hechos.png)
 
 ## 4. Dimensión segmento
 *The United Nations Standard Products and Services Code® - UNSPSC - Código Estándar de Productos y Servicios de Naciones Unidas, es una metodología uniforme de codificación utilizada para clasificar productos y servicios fundamentada en un arreglo jerárquico y en una estructura lógica. Este sistema de clasificación permite codificar productos y servicios de forma clara ya que se basa en estándares acordados por la industria los cuales facilitan el comercio entre empresas y gobierno.*
@@ -114,12 +127,20 @@ Para cada dimensión:
 - Se eliminan duplicados
 - Se inhabilita la carga del archivo UNSPSC en el modelo.
 
+![Dim_Segmento](images/Segmento.png)
+
+## Resultado Final
+
+![Final_Query](images/Final_Query.png)
+
 ## 5. Tabla de fechas
 
 - Se crea mediante DAX (`CALENDAR`) con el rango 01/01/2025 a 30/06/2025.
 - Se añaden columnas de año, número de mes, día y nombre de mes.
 - Se deshabilita la fecha y hora automáticas y se marca como tabla de fechas.
 - Se ordena la columna de mes por el número de mes.
+
+![Dim_Fechas](images/Fechas.png)
 
 ---
 
@@ -129,6 +150,7 @@ Para cada dimensión:
 - Se anclan campos relacionados en la parte superior de las tarjetas.
 - Se ocultan columnas de clave en el modelo para simplificar la vista.
 
+![Modelo](images/Modelo.png)
 ---
 
 ## Medidas creadas
@@ -144,6 +166,7 @@ Para cada dimensión:
 
 *La columna Valor Total Adjudicado se oculta en la tabla de hechos para evitar redundancia.*
 
+![Dim_Medidas](images/Medidas.png)
 ---
 
 # Creación del informe
@@ -155,6 +178,8 @@ El informe se divide en dos secciones principales:
 - Gráficos resumen de procesos por entidad, modalidad, estado, etc.
 - Segmentador sincronizado por fecha.
 
+  ![General](images/General.png)
+
 ## 2. Procesos adjudicados
 - Foco en los procesos con adjudicación.
 - KPI: para medir el avance en los procesos adjudicados sobre el total de procesos de compra
@@ -162,6 +187,7 @@ El informe se divide en dos secciones principales:
 - Gráficos resumen por proveedor, segmento, valor adjudicado, etc
 - Segmentadores sincronizados por ID de proceso y entidad.
 
+![Adjudicados](images/Adjudicados.png)
 
 ## Funcionalidades adicionales
 
@@ -177,6 +203,7 @@ El informe se divide en dos secciones principales:
 - El informe se publica en Power BI Services.
 - Se crea un panel para monitorear las métricas clave del proceso de adjudicación.
 
+ ![Panel](images/Panel.png)
 ---
 
 # Resultado final
@@ -185,6 +212,7 @@ El informe se divide en dos secciones principales:
 - Informe
 - Panel
 
+ ![Resultado](images/Resultado.png)
 ---
 
 # Notas y consideraciones
