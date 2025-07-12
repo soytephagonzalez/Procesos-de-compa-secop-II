@@ -201,9 +201,13 @@ El informe se divide en dos secciones principales:
 ## Publicación y panel en Power BI Services
 
 - El informe se publica en Power BI Services.
+  
+![Services](images/Services.png)
+  
 - Se crea un panel para monitorear las métricas clave del proceso de adjudicación.
 
  ![Panel](images/Panel.png)
+ 
 ---
 
 # Resultado final
