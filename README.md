@@ -293,6 +293,11 @@ El informe se divide en dos secciones principales:
 
  ![Resultado](images/Resultado.png)
 ---
+# Anexos
+
+- Ver video anexo de demostración que muestra la funcionalidad del informe.
+
+---
 
 # Notas y consideraciones
 
