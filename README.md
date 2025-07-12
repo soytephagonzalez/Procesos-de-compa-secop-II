@@ -74,6 +74,7 @@ Este proyecto analiza los procesos de compra pública realizados en la plataform
 - Se define un modelo estrella con una tabla de hechos y nueve tablas de dimensiones.
 - Se crean claves primarias y foráneas, incluidas claves sustitutas generadas manualmente cuando no existen en el origen.
 
+[Diseño](images/Diseño del modelo.png)
 ---
 
 # Proceso de ETL (Extracción, Transformación y Carga)
