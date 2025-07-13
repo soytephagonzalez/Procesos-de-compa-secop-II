@@ -293,6 +293,15 @@ El informe se divide en dos secciones principales:
 
  ![Resultado](images/Resultado.png)
 ---
+# Conclusiones Principales
+
+- Los procesos de compra son en su mayoria de orden territorial concentrandose principalmente en la capital (Bogota), Antioquia y el Valle del Cauca.
+- La modalidad de contratación mas utlizada es la minima cuentia, dado que es que una de las modalidades que menos procesos y requisitos requiere, sin embargo, en el valor total de los procesos adjudicados esta ocupa el tercer lugar, ya que el valor de estos contratos es menor que en otras modadalidades.
+- El tipo de contrato principal es por prestación de servicios. 
+- Los segmentos que generan mas procesos de compra son transporte, tecnologia y servicios de viajes.
+- La mayoria de los procesos aun se encuentran abiertos, lo cual se refleja en el bajo porcentaje de adjudicación.Sin embargo, se observa que muchos procesos ya se encuentra en un estado seleccionado.
+- El mayor valor de adjudicación se realizó en el mes de mayo, sin embargo, el 90% del valor corresponde a una sola entidad y es una contratación de regimen especial.
+---
 # Anexos
 
 - Ver video anexo de demostración que muestra la funcionalidad del informe.
